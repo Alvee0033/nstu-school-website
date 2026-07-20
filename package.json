@@ -1,0 +1,22 @@
+{
+  "name": "nstu-school-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:api": "pnpm --filter api start:dev",
+    "dev:web": "pnpm --filter web dev",
+    "dev:admin": "pnpm --filter admin dev",
+    "build:api": "pnpm --filter api build",
+    "build:web": "pnpm --filter web build",
+    "build:admin": "pnpm --filter admin build",
+    "test": "pnpm --filter api test",
+    "test:cov": "pnpm --filter api test:cov",
+    "db:generate": "pnpm --filter @school/prisma generate",
+    "db:migrate": "pnpm --filter @school/prisma migrate:dev",
+    "db:seed": "pnpm --filter @school/prisma seed",
+    "db:studio": "pnpm --filter @school/prisma studio"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}

@@ -1,0 +1,377 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Enums ───────────────────────────────────────────────────────────────────
+
+enum Role {
+  SUPER_ADMIN
+  ADMIN
+  CONTENT_EDITOR
+}
+
+enum NoticeCategory {
+  GENERAL
+  ACADEMIC
+  ADMISSION
+  EXAM
+  RESULT
+  EVENT
+}
+
+enum NoticeStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum MediaType {
+  PHOTO
+  VIDEO
+}
+
+// ─── Models ──────────────────────────────────────────────────────────────────
+
+model User {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  passwordHash String
+  name         String
+  role         Role      @default(CONTENT_EDITOR)
+  isActive     Boolean   @default(true)
+  lastLoginAt  DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  refreshTokens RefreshToken[]
+  auditLogs     AuditLog[]
+  notices       Notice[]       @relation("NoticeAuthor")
+
+  @@index([email])
+  @@map("users")
+}
+
+model RefreshToken {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([token])
+  @@map("refresh_tokens")
+}
+
+model SchoolInfo {
+  id            String   @id @default(cuid())
+  nameEn        String
+  nameBn        String
+  eiin          String   @unique
+  emis          String?
+  historyEn     String?  @db.Text
+  historyBn     String?  @db.Text
+  visionEn      String?  @db.Text
+  visionBn      String?  @db.Text
+  missionEn     String?  @db.Text
+  missionBn     String?  @db.Text
+  address       String?
+  phone         String?
+  email         String?
+  mapEmbedUrl   String?
+  logoUrl       String?
+  coverImageUrl String?
+  fbPageUrl     String?
+  ytChannelUrl  String?
+  updatedAt     DateTime @updatedAt
+
+  principals Principal[]
+
+  @@map("school_info")
+}
+
+model Principal {
+  id           String     @id @default(cuid())
+  name         String
+  designation  String
+  messageEn    String?    @db.Text
+  messageBn    String?    @db.Text
+  photoUrl     String?
+  type         String     // HEADMASTER | SMC_CHAIRMAN
+  schoolInfoId String
+  isActive     Boolean    @default(true)
+  order        Int        @default(0)
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  school SchoolInfo @relation(fields: [schoolInfoId], references: [id])
+
+  @@map("principals")
+}
+
+model Notice {
+  id            String         @id @default(cuid())
+  titleEn       String
+  titleBn       String?
+  contentEn     String?        @db.Text
+  contentBn     String?        @db.Text
+  category      NoticeCategory @default(GENERAL)
+  status        NoticeStatus   @default(DRAFT)
+  isUrgent      Boolean        @default(false)
+  attachmentUrl String?
+  publishedAt   DateTime?
+  expiresAt     DateTime?
+  authorId      String
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  author User @relation("NoticeAuthor", fields: [authorId], references: [id])
+
+  @@index([status, category])
+  @@index([publishedAt])
+  @@index([isUrgent])
+  @@map("notices")
+}
+
+model Teacher {
+  id            String    @id @default(cuid())
+  nameEn        String
+  nameBn        String?
+  designation   String
+  department    String?
+  subject       String?
+  qualification String?
+  email         String?
+  phone         String?
+  photoUrl      String?
+  bioEn         String?   @db.Text
+  bioBn         String?   @db.Text
+  order         Int       @default(0)
+  isActive      Boolean   @default(true)
+  joinedAt      DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@index([department])
+  @@index([isActive])
+  @@map("teachers")
+}
+
+model Staff {
+  id          String   @id @default(cuid())
+  nameEn      String
+  nameBn      String?
+  designation String
+  phone       String?
+  email       String?
+  photoUrl    String?
+  order       Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("staff")
+}
+
+model Class {
+  id        String    @id @default(cuid())
+  nameEn    String
+  nameBn    String?
+  grade     Int
+  createdAt DateTime  @default(now())
+
+  sections Section[]
+
+  @@map("classes")
+}
+
+model Section {
+  id        String   @id @default(cuid())
+  name      String
+  classId   String
+  createdAt DateTime @default(now())
+
+  class    Class     @relation(fields: [classId], references: [id])
+  students Student[]
+  results  Result[]
+  routines Routine[]
+
+  @@map("sections")
+}
+
+model Student {
+  id         String   @id @default(cuid())
+  studentId  String   @unique
+  nameEn     String
+  nameBn     String?
+  rollNumber Int
+  sectionId  String
+  gender     String?
+  isMerit    Boolean  @default(false)
+  meritRank  Int?
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  section Section  @relation(fields: [sectionId], references: [id])
+  results Result[]
+
+  @@index([studentId])
+  @@index([rollNumber, sectionId])
+  @@map("students")
+}
+
+model Exam {
+  id          String    @id @default(cuid())
+  titleEn     String
+  titleBn     String?
+  year        Int
+  startDate   DateTime?
+  endDate     DateTime?
+  isPublished Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  results  Result[]
+  schedule ExamSchedule[]
+
+  @@map("exams")
+}
+
+model ExamSchedule {
+  id        String   @id @default(cuid())
+  examId    String
+  subject   String
+  date      DateTime
+  startTime String
+  endTime   String
+  createdAt DateTime @default(now())
+
+  exam Exam @relation(fields: [examId], references: [id], onDelete: Cascade)
+
+  @@index([examId])
+  @@map("exam_schedules")
+}
+
+model Result {
+  id            String   @id @default(cuid())
+  studentId     String
+  examId        String
+  sectionId     String
+  subject       String?
+  marksObtained Float?
+  totalMarks    Float?
+  grade         String?
+  gpa           Float?
+  rank          Int?
+  isPublished   Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  student Student @relation(fields: [studentId], references: [id])
+  exam    Exam    @relation(fields: [examId], references: [id])
+  section Section @relation(fields: [sectionId], references: [id])
+
+  @@unique([studentId, examId, subject])
+  @@index([examId, isPublished])
+  @@map("results")
+}
+
+model GalleryAlbum {
+  id            String    @id @default(cuid())
+  titleEn       String
+  titleBn       String?
+  description   String?   @db.Text
+  coverImageUrl String?
+  eventDate     DateTime?
+  isPublished   Boolean   @default(false)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  media GalleryMedia[]
+
+  @@map("gallery_albums")
+}
+
+model GalleryMedia {
+  id        String    @id @default(cuid())
+  albumId   String
+  type      MediaType @default(PHOTO)
+  url       String
+  caption   String?
+  order     Int       @default(0)
+  createdAt DateTime  @default(now())
+
+  album GalleryAlbum @relation(fields: [albumId], references: [id], onDelete: Cascade)
+
+  @@map("gallery_media")
+}
+
+model Routine {
+  id           String   @id @default(cuid())
+  sectionId    String?
+  titleEn      String
+  titleBn      String?
+  fileUrl      String?
+  academicYear String
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  section Section? @relation(fields: [sectionId], references: [id])
+
+  @@map("routines")
+}
+
+model Syllabus {
+  id           String   @id @default(cuid())
+  titleEn      String
+  titleBn      String?
+  classGrade   Int
+  subject      String?
+  academicYear String
+  fileUrl      String
+  isPublished  Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([classGrade, academicYear])
+  @@map("syllabi")
+}
+
+model HolidayCalendar {
+  id           String   @id @default(cuid())
+  titleEn      String
+  titleBn      String?
+  startDate    DateTime
+  endDate      DateTime
+  type         String
+  academicYear String
+  createdAt    DateTime @default(now())
+
+  @@index([startDate, endDate])
+  @@map("holiday_calendars")
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  userId     String
+  action     String
+  resource   String
+  resourceId String?
+  metadata   Json?
+  ipAddress  String?
+  createdAt  DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@index([userId, createdAt])
+  @@index([resource, resourceId])
+  @@map("audit_logs")
+}

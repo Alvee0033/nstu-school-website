@@ -1,0 +1,131 @@
+.carouselFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 6px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 768px) {
+  .carouselFrame {
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-lg);
+    border: 4px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+.slidesWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.activeSlide {
+  opacity: 1;
+  visibility: visible;
+}
+
+.carouselImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Manual Navigation Buttons */
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(15, 61, 34, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-base);
+}
+
+.carouselFrame:hover .navBtn {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 991px) {
+  /* Keep visible on touch screens */
+  .navBtn {
+    opacity: 0.8;
+    visibility: visible;
+    width: 34px;
+    height: 34px;
+  }
+}
+
+.prevBtn {
+  left: var(--space-3);
+}
+
+.nextBtn {
+  right: var(--space-3);
+}
+
+.navBtn:hover {
+  background: var(--color-primary-mid);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.navIcon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Indicators */
+.indicators {
+  position: absolute;
+  bottom: var(--space-4);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: var(--space-2);
+  z-index: 10;
+  background: rgba(15, 61, 34, 0.4);
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  padding: 0;
+}
+
+.activeDot {
+  background: var(--color-warning);
+  width: 20px;
+  border-radius: var(--radius-full);
+}
