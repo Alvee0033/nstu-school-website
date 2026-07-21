@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { Card } from '@/components/ui/Card/Card';
 import styles from './page.module.css';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'শিক্ষার্থীবৃন্দ',
   description: 'NSTU Model School student directory and achievers list.',

@@ -3,6 +3,8 @@ import { api } from '@/lib/api';
 import { ResultsForm } from './ResultsForm';
 import styles from './page.module.css';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'ফলাফল',
   description: 'NSTU Model School exam results search portal.',

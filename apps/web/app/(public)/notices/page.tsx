@@ -6,6 +6,8 @@ import { Badge } from '@/components/ui/Badge/Badge';
 import { Card } from '@/components/ui/Card/Card';
 import styles from './page.module.css';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'নোটিশ বোর্ড',
   description: 'All published notices from NSTU Model School.',

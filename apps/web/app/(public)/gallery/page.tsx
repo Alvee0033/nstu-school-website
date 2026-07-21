@@ -5,6 +5,8 @@ import { formatDate } from '@/lib/utils';
 import { Card } from '@/components/ui/Card/Card';
 import styles from './page.module.css';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'গ্যালারি',
   description: 'NSTU Model School photo and video albums of various school events.',

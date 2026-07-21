@@ -6,6 +6,8 @@ import { Badge } from '@/components/ui/Badge/Badge';
 import { Button } from '@/components/ui/Button/Button';
 import styles from './page.module.css';
 
+export const dynamic = 'force-dynamic';
+
 interface Notice {
   id: string;
   titleEn: string;

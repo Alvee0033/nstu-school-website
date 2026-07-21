@@ -4,6 +4,8 @@ import { api } from '@/lib/api';
 import { Card } from '@/components/ui/Card/Card';
 import styles from './page.module.css';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'শিক্ষকবৃন্দ',
   description: 'NSTU Model School teacher directory and faculty member list.',

@@ -9,6 +9,8 @@ import { Card } from '@/components/ui/Card/Card';
 import styles from './page.module.css';
 import { PremiumHero } from '@/components/layout/PremiumHero/PremiumHero';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Home',
   description:
