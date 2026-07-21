@@ -14,9 +14,21 @@ async function bootstrap() {
 
   app.use(helmet());
 
-  const corsOrigins = config.get<string>('CORS_ORIGINS', 'http://localhost:3001');
+  // Allow any Vercel subdomain + explicit origins from env
+  const corsOriginsEnv = config.get<string>('CORS_ORIGINS', '');
+  const allowedOrigins: (string | RegExp)[] = [
+    /https:\/\/.*\.vercel\.app$/,
+    'http://localhost:3000',
+    'http://localhost:3001',
+    'http://localhost:3002',
+    'http://localhost:3003',
+  ];
+  if (corsOriginsEnv) {
+    corsOriginsEnv.split(',').map((o) => o.trim()).forEach((o) => allowedOrigins.push(o));
+  }
+
   app.enableCors({
-    origin: corsOrigins.split(','),
+    origin: allowedOrigins,
     credentials: true,
   });
 
@@ -44,8 +56,10 @@ async function bootstrap() {
 
   SwaggerModule.setup('api/docs', app, SwaggerModule.createDocument(app, swaggerConfig));
 
-  const port = config.get<number>('PORT', 3000);
+  const port = config.get<number>('PORT', 3005);
   await app.listen(port);
+  console.log(`API running on port ${port}`);
 }
 
 bootstrap();
+

@@ -36,8 +36,14 @@ const CATEGORY_VARIANT_MAP: Record<
 
 async function getLatestNotices(): Promise<Notice[]> {
   try {
-    const result = await api.get<{ data: Notice[] }>('/public/notices?limit=6');
-    return result.data;
+    // api.get already unwraps json.data, so the returned value IS the array
+    const notices = await api.get<Notice[] | { data: Notice[] }>('/public/notices?limit=6');
+    // Handle both shapes defensively
+    if (Array.isArray(notices)) return notices;
+    if (notices && typeof notices === 'object' && 'data' in notices && Array.isArray((notices as { data: Notice[] }).data)) {
+      return (notices as { data: Notice[] }).data;
+    }
+    return FALLBACK_NOTICES;
   } catch {
     return FALLBACK_NOTICES;
   }
@@ -321,8 +327,13 @@ export default async function HomePage() {
           <div className={styles.noticeListLayout}>
             {notices.map((notice, i) => {
               const d = new Date(notice.publishedAt);
-              const day = isNaN(d.getTime()) ? '15' : d.getDate().toString().padStart(2, '০');
-              const monthBn = 'জানুয়ারি'; // Simple localized display for notices
+              const isValid = !isNaN(d.getTime());
+              const day = isValid ? d.getDate().toString() : '১';
+              const MONTHS_BN = [
+                'জানুয়ারি','ফেব্রুয়ারি','মার্চ','এপ্রিল','মে','জুন',
+                'জুলাই','আগস্ট','সেপ্টেম্বর','অক্টোবর','নভেম্বর','ডিসেম্বর',
+              ];
+              const monthBn = isValid ? MONTHS_BN[d.getMonth()] : 'জানুয়ারি';
               return (
                 <Link key={notice.id} href={`/notices/${notice.id}`} className={`${styles.noticeListItem} reveal reveal-delay-${(i % 3) + 1}`}>
                   <div className={styles.noticeDateBadge}>

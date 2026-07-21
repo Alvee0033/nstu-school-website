@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { CacheModule } from '@nestjs/cache-manager';
-import * as redisStore from 'cache-manager-redis-store';
 import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
@@ -33,16 +32,11 @@ import { HealthModule } from './modules/health/health.module';
       }),
     }),
 
-    CacheModule.registerAsync({
+    // In-memory cache — works on any host without Redis infrastructure
+    CacheModule.register({
       isGlobal: true,
-      inject: [ConfigService],
-      useFactory: (config: ConfigService) => ({
-        store: redisStore,
-        host: config.get('REDIS_HOST', 'localhost'),
-        port: config.get<number>('REDIS_PORT', 6379),
-        password: config.get('REDIS_PASSWORD'),
-        ttl: 300,
-      }),
+      ttl: 300,
+      max: 500,
     }),
 
     PrismaModule,
