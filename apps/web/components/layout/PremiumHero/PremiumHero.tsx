@@ -9,9 +9,9 @@ const SLIDES = [
     img: '/hero-banner.png',
     tag: 'ভর্তি চলছে ২০২৬',
     titleWords: [
-      { text: 'নোবিপ্রবি', highlight: false },
-      { text: 'মডেল', highlight: true },
-      { text: 'স্কুল', highlight: false },
+      { text: 'নতুন', highlight: false },
+      { text: 'কুঁড়ি', highlight: true },
+      { text: 'হাই স্কুল', highlight: false },
     ],
     sub: 'নোয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয় ক্যাম্পাস। শিক্ষার্থীদের সুপ্ত প্রতিভা বিকাশ ও একটি উন্নত ভবিষ্যৎ প্রজন্ম গঠনে প্রতিশ্রুতিবদ্ধ।',
   },

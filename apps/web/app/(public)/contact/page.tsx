@@ -97,7 +97,7 @@ export default async function ContactPage() {
 
             {/* Map Embed */}
             <Card className={`${styles.card} ${styles.mapCard}`}>
-              <h2 className={styles.sectionTitle}>গুগল ম্যাপে নোবিপ্রবি ক্যাম্পাস</h2>
+              <h2 className={styles.sectionTitle}>গুগল ম্যাপে স্কুলের লোকেশন</h2>
               <div className={styles.iframeWrapper}>
                 <iframe
                   src={mapEmbedUrl}

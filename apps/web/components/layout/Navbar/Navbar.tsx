@@ -64,7 +64,7 @@ export function Navbar() {
           </div>
           <div className={styles.topActions}>
             <a href="https://nstu.edu.bd" target="_blank" rel="noopener noreferrer" className={styles.topLink}>
-              নোবিপ্রবি ওয়েবসাইট
+              অফিশিয়াল ওয়েবসাইট
             </a>
           </div>
         </div>
@@ -152,7 +152,7 @@ export function Navbar() {
             rel="noopener noreferrer"
             className={styles.drawerNstuLink}
           >
-            নোবিপ্রবি ওয়েবসাইট
+            অফিশিয়াল ওয়েবসাইট
           </a>
         </div>
       </div>
