@@ -4,6 +4,8 @@ import { Card } from '@/components/ui/Card/Card';
 import { Button } from '@/components/ui/Button/Button';
 import styles from './page.module.css';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'যোগাযোগ',
   description: 'Contact info, address, map location, and query form of NSTU Model School.',
