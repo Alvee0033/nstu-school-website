@@ -19,8 +19,8 @@ export class SchoolInfoService {
     if (!info) {
       info = await this.prisma.schoolInfo.create({
         data: {
-          nameEn: 'NSTU Model School',
-          nameBn: 'নোবিপ্রবি মডেল স্কুল',
+          nameEn: 'Notun Kuri High School',
+          nameBn: 'নতুন কুঁড়ি হাই স্কুল',
           eiin: '138240',
         },
         include: {

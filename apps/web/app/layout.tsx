@@ -3,10 +3,10 @@ import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3001'),
-  title: { default: 'NSTU Model School', template: '%s | NSTU Model School' },
-  description: 'Official website of NSTU Model School — notices, results, teachers, and more.',
+  title: { default: 'Notun Kuri High School', template: '%s | Notun Kuri High School' },
+  description: 'Official website of Notun Kuri High School — notices, results, teachers, and more.',
   openGraph: {
-    siteName: 'NSTU Model School',
+    siteName: 'Notun Kuri High School',
     type: 'website',
     locale: 'bn_BD',
   },

@@ -25,7 +25,7 @@ const FALLBACK_NOTICES: Record<string, Notice> = {
     id: 'n1',
     titleEn: 'Admission Open for Class 1 to 10 — Academic Year 2026',
     titleBn: 'শ্রেণী ১ থেকে ১০ পর্যন্ত ভর্তি চলছে — শিক্ষাবর্ষ ২০২৬',
-    contentBn: 'নোবিপ্রবি মডেল স্কুলে ২০২৬ শিক্ষাবর্ষের জন্য শ্রেণী ১ থেকে ১০ পর্যন্ত ভর্তি কার্যক্রম শুরু হয়েছে। আগ্রহী অভিভাবক ও শিক্ষার্থীদের অনলাইনের মাধ্যমে আবেদন করার অনুরোধ করা হচ্ছে। ভর্তির আবেদন ফরম পূরণের শেষ সময় ২০ জানুয়ারি ২০২৬। আবেদনের বিস্তারিত নিয়মাবলী ও প্রসপেক্টাস নিচে সংযুক্ত ফাইলে দেওয়া হলো।',
+    contentBn: 'নতুন কুঁড়ি হাই স্কুলে ২০২৬ শিক্ষাবর্ষের জন্য শ্রেণী ১ থেকে ১০ পর্যন্ত ভর্তি কার্যক্রম শুরু হয়েছে। আগ্রহী অভিভাবক ও শিক্ষার্থীদের অনলাইনের মাধ্যমে আবেদন করার অনুরোধ করা হচ্ছে। ভর্তির আবেদন ফরম পূরণের শেষ সময় ২০ জানুয়ারি ২০২৬। আবেদনের বিস্তারিত নিয়মাবলী ও প্রসপেক্টাস নিচে সংযুক্ত ফাইলে দেওয়া হলো।',
     category: 'ADMISSION',
     isUrgent: true,
     publishedAt: '2026-01-10T00:00:00Z',
@@ -35,7 +35,7 @@ const FALLBACK_NOTICES: Record<string, Notice> = {
     id: 'n2',
     titleEn: 'Annual Sports Day Scheduled for 25 January 2026',
     titleBn: 'বার্ষিক ক্রীড়া প্রতিযোগিতা ২৫ জানুয়ারি ২০২৬',
-    contentBn: 'নোবিপ্রবি মডেল স্কুলের বার্ষিক ক্রীড়া প্রতিযোগিতা আগামী ২৫ জানুয়ারি ২০২৬ তারিখে বিশ্ববিদ্যালয় কেন্দ্রীয় খেলার মাঠে অনুষ্ঠিত হবে। ক্রীড়া প্রতিযোগিতায় বিভিন্ন ইভেন্টে অংশগ্রহণে ইচ্ছুক শিক্ষার্থীদের নিজ নিজ শ্রেণীর শ্রেণী শিক্ষকের নিকট নাম জমা দেওয়ার জন্য বলা হলো। নাম জমা দেওয়ার শেষ তারিখ ১৫ জানুয়ারি ২০২৬।',
+    contentBn: 'নতুন কুঁড়ি হাই স্কুলের বার্ষিক ক্রীড়া প্রতিযোগিতা আগামী ২৫ জানুয়ারি ২০২৬ তারিখে বিশ্ববিদ্যালয় কেন্দ্রীয় খেলার মাঠে অনুষ্ঠিত হবে। ক্রীড়া প্রতিযোগিতায় বিভিন্ন ইভেন্টে অংশগ্রহণে ইচ্ছুক শিক্ষার্থীদের নিজ নিজ শ্রেণীর শ্রেণী শিক্ষকের নিকট নাম জমা দেওয়ার জন্য বলা হলো। নাম জমা দেওয়ার শেষ তারিখ ১৫ জানুয়ারি ২০২৬।',
     category: 'GENERAL',
     isUrgent: false,
     publishedAt: '2026-01-08T00:00:00Z',
@@ -64,7 +64,7 @@ const FALLBACK_NOTICES: Record<string, Notice> = {
     id: 'n5',
     titleEn: 'Science Fair 2026 Registration Now Open',
     titleBn: 'বিজ্ঞান মেলা ২০২৬-এ নিবন্ধন শুরু হয়েছে',
-    contentBn: 'নোবিপ্রবি মডেল স্কুল বিজ্ঞান ক্লাব আয়োজিত বিজ্ঞান মেলা ২০২৬ এ অংশগ্রহণের জন্য নিবন্ধন শুরু হয়েছে। আগ্রহী শিক্ষার্থীরা ২ বা ৩ জনের দল গঠন করে আগামী ১৫ জানুয়ারির মধ্যে বিজ্ঞান ক্লাবের সমন্বয়ক শিক্ষকের নিকট প্রজেক্টের সারসংক্ষেপ জমা দিন। মেলা অনুষ্ঠিত হবে ৫ ফেব্রুয়ারি ২০২৬।',
+    contentBn: 'নতুন কুঁড়ি হাই স্কুল বিজ্ঞান ক্লাব আয়োজিত বিজ্ঞান মেলা ২০২৬ এ অংশগ্রহণের জন্য নিবন্ধন শুরু হয়েছে। আগ্রহী শিক্ষার্থীরা ২ বা ৩ জনের দল গঠন করে আগামী ১৫ জানুয়ারির মধ্যে বিজ্ঞান ক্লাবের সমন্বয়ক শিক্ষকের নিকট প্রজেক্টের সারসংক্ষেপ জমা দিন। মেলা অনুষ্ঠিত হবে ৫ ফেব্রুয়ারি ২০২৬।',
     category: 'ACADEMIC',
     isUrgent: false,
     publishedAt: '2025-12-28T00:00:00Z',
@@ -110,7 +110,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!notice) return { title: 'নোটিশ পাওয়া যায়নি' };
   return {
     title: notice.titleBn || notice.titleEn,
-    description: `${notice.category} notice from NSTU Model School`,
+    description: `${notice.category} notice from Notun Kuri High School`,
   };
 }
 
@@ -166,7 +166,7 @@ export default async function NoticePage({ params }: PageProps) {
                 <span className={styles.calMonth}>{monthBn}</span>
               </div>
               <div className={styles.metaInfo}>
-                <span className={styles.publishedLabel}>প্রকাশক: নোবিপ্রবি মডেল স্কুল প্রশাসন</span>
+                <span className={styles.publishedLabel}>প্রকাশক: নতুন কুঁড়ি হাই স্কুল প্রশাসন</span>
                 <time className={styles.date} dateTime={notice.publishedAt}>
                   {formatDate(notice.publishedAt)}
                 </time>

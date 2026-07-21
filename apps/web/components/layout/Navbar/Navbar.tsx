@@ -73,7 +73,7 @@ export function Navbar() {
       {/* Main Navbar */}
       <nav className={`${styles.navbar} ${scrolled ? styles.navbarScrolled : ''}`} aria-label="Main navigation">
         <div className={`container ${styles.inner}`}>
-          <Link href="/" className={styles.logo} aria-label="NSTU Model School home">
+          <Link href="/" className={styles.logo} aria-label="Notun Kuri High School home">
             <div className={styles.logoMark}>
               <svg className={styles.logoIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 {/* Outer Shield */}
@@ -87,8 +87,8 @@ export function Navbar() {
               </svg>
             </div>
             <div className={styles.logoInfo}>
-              <span className={styles.logoTitle}>নোবিপ্রবি মডেল স্কুল</span>
-              <span className={styles.logoSubTitle}>NSTU Model School</span>
+              <span className={styles.logoTitle}>নতুন কুঁড়ি হাই স্কুল</span>
+              <span className={styles.logoSubTitle}>Notun Kuri High School</span>
             </div>
           </Link>
 

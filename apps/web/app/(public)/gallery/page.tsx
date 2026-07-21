@@ -9,7 +9,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'গ্যালারি',
-  description: 'NSTU Model School photo and video albums of various school events.',
+  description: 'Notun Kuri High School photo and video albums of various school events.',
 };
 
 interface GalleryAlbum {

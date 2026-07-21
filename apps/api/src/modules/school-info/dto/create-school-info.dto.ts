@@ -2,12 +2,12 @@ import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { IsOptional, IsString, MaxLength } from 'class-validator';
 
 export class CreateSchoolInfoDto {
-  @ApiProperty({ example: 'NSTU Model School' })
+  @ApiProperty({ example: 'Notun Kuri High School' })
   @IsString()
   @MaxLength(200)
   nameEn: string;
 
-  @ApiProperty({ example: 'নোবিপ্রবি মডেল স্কুল' })
+  @ApiProperty({ example: 'নতুন কুঁড়ি হাই স্কুল' })
   @IsString()
   @MaxLength(200)
   nameBn: string;
@@ -63,7 +63,7 @@ export class CreateSchoolInfoDto {
   @IsString()
   phone?: string;
 
-  @ApiPropertyOptional({ example: 'info@nstumodelschool.edu' })
+  @ApiPropertyOptional({ example: 'info@notunkurihighschool.edu' })
   @IsOptional()
   @IsString()
   email?: string;

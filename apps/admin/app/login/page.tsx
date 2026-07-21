@@ -11,7 +11,7 @@ export default function LoginPage() {
     <main className={styles.container}>
       <div className={styles.card}>
         <div className={styles.header}>
-          <h1 className={styles.title}>NSTU Model School</h1>
+          <h1 className={styles.title}>Notun Kuri High School</h1>
           <p className={styles.subtitle}>Administrative Console Sign In</p>
         </div>
 

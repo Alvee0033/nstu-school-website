@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'যোগাযোগ',
-  description: 'Contact info, address, map location, and query form of NSTU Model School.',
+  description: 'Contact info, address, map location, and query form of Notun Kuri High School.',
 };
 
 interface SchoolInfo {

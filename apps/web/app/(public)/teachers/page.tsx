@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'শিক্ষকবৃন্দ',
-  description: 'NSTU Model School teacher directory and faculty member list.',
+  description: 'Notun Kuri High School teacher directory and faculty member list.',
 };
 
 interface Teacher {

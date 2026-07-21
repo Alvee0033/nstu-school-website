@@ -25,7 +25,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
       <aside className={styles.sidebar}>
         <div className={styles.brand}>
           <div className={styles.brandTitle}>Admin Console</div>
-          <div className={styles.brandSubtitle}>NSTU Model School</div>
+          <div className={styles.brandSubtitle}>Notun Kuri High School</div>
         </div>
 
         <nav className={styles.nav}>
@@ -62,7 +62,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
       <div className={styles.contentWrapper}>
         <header className={styles.header}>
           <div className={styles.headerBrand}>
-            <span className={styles.headerBrandMobile}>NSTU Model School Admin</span>
+            <span className={styles.headerBrandMobile}>Notun Kuri High School Admin</span>
             <span className={styles.headerBrandDesktop}>Management Portal</span>
           </div>
           <div className={styles.headerActions}>

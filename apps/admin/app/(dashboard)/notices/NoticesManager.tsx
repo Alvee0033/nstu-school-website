@@ -188,7 +188,7 @@ export default function NoticesManager({ initialNotices }: NoticesManagerProps) 
                   value={attachmentUrl}
                   onChange={(e) => setAttachmentUrl(e.target.value)}
                   className={styles.input}
-                  placeholder="e.g. https://nstumodelschool.edu/files/schedule.pdf"
+                  placeholder="e.g. https://notunkurihighschool.edu/files/schedule.pdf"
                 />
               </div>
 

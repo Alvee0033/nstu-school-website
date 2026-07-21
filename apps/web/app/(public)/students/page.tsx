@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'শিক্ষার্থীবৃন্দ',
-  description: 'NSTU Model School student directory and achievers list.',
+  description: 'Notun Kuri High School student directory and achievers list.',
 };
 
 interface Student {

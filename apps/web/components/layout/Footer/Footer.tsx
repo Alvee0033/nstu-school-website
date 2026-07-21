@@ -14,7 +14,7 @@ export function Footer() {
               <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
               <path d="M22 10h-2v1.5h2V10zm-4-4.5L12 2 6 5.5v13L12 22l6-3.5v-13zM12 20l-4-2.33v-11.3L12 4.1l4 2.27v11.3L12 20z" />
             </svg>
-            <h3 className={styles.heading}>নোবিপ্রবি মডেল স্কুল</h3>
+            <h3 className={styles.heading}>নতুন কুঁড়ি হাই স্কুল</h3>
           </div>
           <p className={styles.text}>
             নোয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয় ক্যাম্পাস। প্রতিটি শিক্ষার্থীর সুপ্ত প্রতিভা বিকাশ এবং একটি উন্নত ও মানবিক মূল্যবোধসম্পন্ন ভবিষ্যৎ প্রজন্ম গড়ে তুলতে আমরা প্রতিশ্রুতিবদ্ধ।
@@ -82,7 +82,7 @@ export function Footer() {
       <div className={styles.bottom}>
         <div className="container">
           <p className={styles.copyright}>
-            &copy; {year} নোবিপ্রবি মডেল স্কুল। সর্বস্বত্ব সংরক্ষিত।
+            &copy; {year} নতুন কুঁড়ি হাই স্কুল। সর্বস্বত্ব সংরক্ষিত।
           </p>
         </div>
       </div>

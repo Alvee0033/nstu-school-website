@@ -1,7 +1,7 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'NSTU Model School - Admin Console',
+  title: 'Notun Kuri High School - Admin Console',
   description: 'Manage school website content',
 };
 

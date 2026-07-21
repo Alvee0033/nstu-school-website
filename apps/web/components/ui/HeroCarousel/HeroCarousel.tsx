@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import styles from './HeroCarousel.module.css';
 
 const CAROUSEL_IMAGES = [
-  { src: '/hero-banner.png', alt: 'NSTU Model School Campus' },
+  { src: '/hero-banner.png', alt: 'Notun Kuri High School Campus' },
   { src: '/gallery_classroom.png', alt: 'Modern Classroom Facility' },
   { src: '/gallery_lab.png', alt: 'Advanced Computer & Science Lab' },
   { src: '/gallery_sports.png', alt: 'Annual Sports Festival' },

@@ -144,7 +144,7 @@ export default function DashboardClient({ initialStats }: DashboardClientProps) 
       {/* Welcome Banner */}
       <div className={styles.welcomeSection}>
         <div className={styles.welcomeText}>
-          <h1 className={styles.title}>NSTU Model School Portal</h1>
+          <h1 className={styles.title}>Notun Kuri High School Portal</h1>
           <p className={styles.subtitle}>Welcome back, administrator. Manage school rosters, directories, notices, and results.</p>
         </div>
         <div className={styles.statusBadge}>

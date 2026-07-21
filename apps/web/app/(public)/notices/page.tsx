@@ -10,7 +10,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'নোটিশ বোর্ড',
-  description: 'All published notices from NSTU Model School.',
+  description: 'All published notices from Notun Kuri High School.',
 };
 
 interface Notice {
