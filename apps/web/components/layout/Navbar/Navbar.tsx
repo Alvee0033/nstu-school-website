@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { href: '/teachers',   label: 'শিক্ষকবৃন্দ' },
   { href: '/students',   label: 'শিক্ষার্থী' },
   { href: '/results',    label: 'ফলাফল' },
+  { href: '/committee',  label: 'ম্যানেজিং কমিটি' },
   { href: '/gallery',    label: 'গ্যালারি' },
   { href: '/contact',    label: 'যোগাযোগ' },
 ];
